@@ -1,0 +1,51 @@
+{
+  "autor": "Juan Felipe Muriel",
+  "codigo": "202321092",
+  "curso": "ICYA-3004 Herramientas de Inteligencia Artificial",
+  "dataset": "SeoulBikeData.csv (8,465 observaciones tras filtrar días no operativos)",
+  "variable_objetivo": "demanda (bicicletas rentadas por hora)",
+  "variables_entrada": [
+    "hora",
+    "temp",
+    "temp2",
+    "humedad",
+    "viento",
+    "visibilidad",
+    "radiacion",
+    "lluvia",
+    "nieve",
+    "finde",
+    "estacion_Spring",
+    "estacion_Summer",
+    "estacion_Winter",
+    "festivo_No Holiday"
+  ],
+  "orden_importa": true,
+  "entorno": {
+    "scikit_learn": "1.9.0",
+    "numpy": "2.4.6",
+    "joblib": "1.5.3"
+  },
+  "modelos": {
+    "modelo_ridge.joblib": {
+      "tipo": "Regresión lineal Ridge (descenso de gradiente propio)",
+      "hiperparametros": {
+        "alpha": 0.3,
+        "iteraciones": 100,
+        "lambda": 10
+      },
+      "R2_test": 0.5585,
+      "nota": "Estandariza internamente; recibe las variables en unidades originales"
+    },
+    "modelo_random_forest.joblib": {
+      "tipo": "RandomForestRegressor (scikit-learn)",
+      "hiperparametros": {
+        "n_estimators": 300,
+        "max_features": 12,
+        "min_samples_leaf": 1
+      },
+      "R2_test": 0.9089,
+      "nota": "No requiere estandarización"
+    }
+  }
+}
